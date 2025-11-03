@@ -25,4 +25,4 @@ jobs:
       - name: Coverage report to Codecov
         uses: codecov/codecov-action@v5
         env:
-          CODECOV_TOKEN: ${{ 144db603-f1bf-40c2-b7de-65d89d6637e4 }}
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
