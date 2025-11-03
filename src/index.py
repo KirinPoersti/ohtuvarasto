@@ -7,7 +7,7 @@ def main():
 
     print("Luonnin jälkeen:")
     print(f"Mehuvarasto: {mehua}")
-    print(f"Olutvarasto: {olutta}")
+    print(f"Olutvarasto: {olutta}"
 
     print("Olut getterit:")
     print(f"saldo = {olutta.saldo}")
