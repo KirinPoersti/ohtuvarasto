@@ -8,6 +8,7 @@ class Varasto:
         """Alustaa varaston"""
         self.tilavuus = max(0.0, tilavuus)
         self.saldo = self._laske_alkusaldo(alku_saldo, self.tilavuus)
+        # This line is intentionally too long to demonstrate that Pylint will catch it in GitHub Actions
 
     def _laske_alkusaldo(self, alku_saldo, tilavuus):
         """Laskee oikean alkusaldon"""
