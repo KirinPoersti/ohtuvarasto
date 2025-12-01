@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Ota tavaraa - {{ warehouse.name }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1>Ota tavaraa</h1>
+        <h4 class="text-muted">{{ warehouse.name }}</h4>
+        <hr>
+        
+        <div class="alert alert-info">
+            <strong>Nykyinen saldo:</strong> 
+            {{ "%.2f"|format(warehouse.varasto.saldo) }}<br>
+            <strong>Saatavilla:</strong> 
+            {{ "%.2f"|format(warehouse.varasto.saldo) }}
+        </div>
+        
+        <form method="POST">
+            <div class="mb-3">
+                <label for="maara" class="form-label">
+                    Otettava määrä
+                </label>
+                <input type="number" 
+                       class="form-control" 
+                       id="maara" 
+                       name="maara" 
+                       step="0.01" 
+                       min="0.01" 
+                       required>
+                <div class="form-text">
+                    Määrä, joka otetaan varastosta
+                </div>
+            </div>
+            
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-warning">
+                    Ota varastosta
+                </button>
+                <a href="{{ url_for('warehouse_detail', warehouse_id=warehouse.id) }}" 
+                   class="btn btn-secondary">
+                    Peruuta
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

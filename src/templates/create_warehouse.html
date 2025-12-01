@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Luo varasto - Varastohallinta{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1>Luo uusi varasto</h1>
+        <hr>
+        
+        <form method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Varaston nimi</label>
+                <input type="text" 
+                       class="form-control" 
+                       id="name" 
+                       name="name" 
+                       required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="tilavuus" class="form-label">Tilavuus</label>
+                <input type="number" 
+                       class="form-control" 
+                       id="tilavuus" 
+                       name="tilavuus" 
+                       step="0.01" 
+                       min="0" 
+                       required>
+                <div class="form-text">
+                    Varaston maksimitilavuus
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="alku_saldo" class="form-label">
+                    Alkusaldo (valinnainen)
+                </label>
+                <input type="number" 
+                       class="form-control" 
+                       id="alku_saldo" 
+                       name="alku_saldo" 
+                       step="0.01" 
+                       min="0" 
+                       value="0">
+                <div class="form-text">
+                    Varaston alkuperäinen sisältö
+                </div>
+            </div>
+            
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">
+                    Luo varasto
+                </button>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                    Peruuta
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
